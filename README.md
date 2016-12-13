@@ -2,6 +2,11 @@
 
 Emulates HTC Vive Controllers with Arduino's, IMUs, and the Leap Motion sensor. Using the Leap Motion sensor for positional tracking of hands and orientation from an Arduino, HTC Vive controller data is spoofed by using FreePIE to generate Razer Hydra data. To simplify, the Arduino is flashed as a USB joystick and passes orientation data through the 16-bit joystick axis values, along with button presses.
 
+https://youtu.be/kD7rpQKc5ew
+
+Additional info, photos, and videos:
+http://flrnmrr.com/2016/11/30/arduino-vive-controller-emulation
+
 Requirements:
 
 - Tracked VR headset (Oculus DK2)
@@ -14,21 +19,29 @@ Requirements:
 - recommended: xbox 360 controller for testing
 
 Arduino:
+
 - Firmware is written for Arduino Pro Micro. Different Arduinos may use different pins
 - copy the libraries into your Arduino folder (default is ~/Documents/Arduino/libraries)
 - Some can be obtained through the library manager in the Arduino IDE
 
-(More install help: http://www.mtbs3d.com/phpBB/viewtopic.php?f=139&t=19753 )
+3D Printer files:
+
+- very early version
+- comes as multiple pieces that require to be fused together (e.g. handle and joystick mount)
+- requires a lot of modification, I suggest ABS plastic as filament material. Hack your buttons into it, I used arcade buttons
 
 How to Use:
 
 - Run Steam VR
 - Open FreePIE, run script
+- To calibrate, point the Arduino's IMU/orientation sensor forward and press left-thumbstick down on the 360 controller (change line 163 "if ((xbox360[i].leftThumb) ):" for different key)
+
 
 Support:
 
 - Sixsense SDK has testing app under "Samples" folder of download
-- The script assumes the Arduino-joysticks feeding the orientation data are index 0 and 1. Most problems can be addressed by change these indexes near Line 147: "joyLi" and "joyRi"d
-- To calibrate, point the Arduino's IMU/orientation sensor forward and press left-thumbstick down on the 360 controller (change line 163 "if ((xbox360[i].leftThumb) ):" for different key)
+- The script assumes the Arduino-joysticks feeding the orientation data are index 0 and 1. Most problems can be addressed by change these indexes near Line 147: "joyLi" and "joyRi"
 - Still having issues? Have you tried Right-click > "Run as Administrator"?
 - If all else fails, test if you can make it work with just a 360 controller: http://www.mtbs3d.com/phpbb/viewtopic.php?f=139&t=19270
+
+(More install help: http://www.mtbs3d.com/phpBB/viewtopic.php?f=139&t=19753 )
